@@ -33,7 +33,7 @@ void parseMQTTmessage(char* topic, byte* payload, unsigned int length)
   String kwhCmdTopic;
   String debounceTimeCmdTopic;
   bool processed=false;
-  for (int i=0; i<4; i++) {
+  for (int i=0; i<FERRARIS_NUM; i++) {
     ukwhCmdTopic         = getSetTopicName(i+1, "UKWh");
     kwhCmdTopic          = getSetTopicName(i+1, "Stand");
     debounceTimeCmdTopic = getSetTopicName(i+1, "Entprellzeit");
@@ -57,22 +57,22 @@ void parseMQTTmessage(char* topic, byte* payload, unsigned int length)
           saveConfig = true;
           processed  = true;
           break;
-        case 3:
-          Serial.print("Setting configManager.data.meter_loops_count_3 to ");
-          Serial.print(meters_per_loop);
-          Serial.println();
-          configManager.data.meter_loops_count_3 = meters_per_loop;
-          saveConfig = true;
-          processed  = true;
-          break;
-        case 4:
-          Serial.print("Setting configManager.data.meter_loops_count_4 to ");
-          Serial.print(meters_per_loop);
-          Serial.println();
-          configManager.data.meter_loops_count_4 = meters_per_loop;
-          saveConfig = true;
-          processed  = true;
-          break;
+        // case 3:
+        //   Serial.print("Setting configManager.data.meter_loops_count_3 to ");
+        //   Serial.print(meters_per_loop);
+        //   Serial.println();
+        //   configManager.data.meter_loops_count_3 = meters_per_loop;
+        //   saveConfig = true;
+        //   processed  = true;
+        //   break;
+        // case 4:
+        //   Serial.print("Setting configManager.data.meter_loops_count_4 to ");
+        //   Serial.print(meters_per_loop);
+        //   Serial.println();
+        //   configManager.data.meter_loops_count_4 = meters_per_loop;
+        //   saveConfig = true;
+        //   processed  = true;
+        //   break;
 
         default:
           break;
@@ -102,22 +102,22 @@ void parseMQTTmessage(char* topic, byte* payload, unsigned int length)
           saveConfig = true;
           processed  = true;
           break;
-        case 3:
-          Serial.print("Setting configManager.data.meter_counter_reading_3 to ");
-          Serial.print(meter_value);
-          Serial.println();
-          configManager.data.meter_counter_reading_3 = meter_value;
-          saveConfig = true;
-          processed  = true;
-          break;
-        case 4:
-          Serial.print("Setting configManager.data.meter_counter_reading_4 to ");
-          Serial.print(meter_value);
-          Serial.println();
-          configManager.data.meter_counter_reading_4 = meter_value;
-          saveConfig = true;
-          processed  = true;
-          break;
+        // case 3:
+        //   Serial.print("Setting configManager.data.meter_counter_reading_3 to ");
+        //   Serial.print(meter_value);
+        //   Serial.println();
+        //   configManager.data.meter_counter_reading_3 = meter_value;
+        //   saveConfig = true;
+        //   processed  = true;
+        //   break;
+        // case 4:
+        //   Serial.print("Setting configManager.data.meter_counter_reading_4 to ");
+        //   Serial.print(meter_value);
+        //   Serial.println();
+        //   configManager.data.meter_counter_reading_4 = meter_value;
+        //   saveConfig = true;
+        //   processed  = true;
+        //   break;
 
         default:
           break;
@@ -147,22 +147,22 @@ void parseMQTTmessage(char* topic, byte* payload, unsigned int length)
           saveConfig = true;
           processed  = true;
           break;
-        case 3:
-          Serial.print("Setting configManager.data.debounce_3 to ");
-          Serial.print(debounce_value);
-          Serial.println();
-          configManager.data.meter_debounce_3 = debounce_value;
-          saveConfig = true;
-          processed  = true;
-          break;
-        case 4:
-          Serial.print("Setting configManager.data.debounce_4 to ");
-          Serial.print(debounce_value);
-          Serial.println();
-          configManager.data.meter_debounce_4 = debounce_value;
-          saveConfig = true;
-          processed  = true;
-          break;
+        // case 3:
+        //   Serial.print("Setting configManager.data.debounce_3 to ");
+        //   Serial.print(debounce_value);
+        //   Serial.println();
+        //   configManager.data.meter_debounce_3 = debounce_value;
+        //   saveConfig = true;
+        //   processed  = true;
+        //   break;
+        // case 4:
+        //   Serial.print("Setting configManager.data.debounce_4 to ");
+        //   Serial.print(debounce_value);
+        //   Serial.println();
+        //   configManager.data.meter_debounce_4 = debounce_value;
+        //   saveConfig = true;
+        //   processed  = true;
+        //   break;
 
         default:
           break;

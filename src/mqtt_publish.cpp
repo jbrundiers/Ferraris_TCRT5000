@@ -77,7 +77,7 @@ void checkMQTTconnection(void)
         // MQTTclient.subscribe("inTopic");
         String topic[3]={"UKWh","Stand","Entprellzeit"};
         for (int tId = 0; tId < 3; tId++) {
-          for (int i = 0; i < 4; i++) {
+          for (int i = 0; i < FERRARIS_NUM; i++) {
             ESP.wdtFeed();  // keep WatchDog alive
             String t = getSetTopicName(i+1, topic[tId]);
             if (MQTTclient.subscribe(t.c_str())) {
@@ -273,38 +273,38 @@ void publishMQTT(void)
   MQTTclient.publish(topic.c_str(), message_buffer, true);
 
   // Meter #3
-  topic = getTopicName(3, "Stand");
-  dtostrf(Ferraris::getInstance(2).get_kWh(), 1, 1, message_buffer);
-  MQTTclient.publish(topic.c_str(), message_buffer, true);
+  // topic = getTopicName(3, "Stand");
+  // dtostrf(Ferraris::getInstance(2).get_kWh(), 1, 1, message_buffer);
+  // MQTTclient.publish(topic.c_str(), message_buffer, true);
 
-  topic = getTopicName(3, "W");
-  dtostrf(Ferraris::getInstance(2).get_W(), 1, 1, message_buffer);
-  MQTTclient.publish(topic.c_str(), message_buffer, false);
+  // topic = getTopicName(3, "W");
+  // dtostrf(Ferraris::getInstance(2).get_W(), 1, 1, message_buffer);
+  // MQTTclient.publish(topic.c_str(), message_buffer, false);
 
-  topic = getTopicName(3, "UKWh");
-  itoa(configManager.data.meter_loops_count_3, message_buffer, 10);
-  MQTTclient.publish(topic.c_str(), message_buffer, true);
+  // topic = getTopicName(3, "UKWh");
+  // itoa(configManager.data.meter_loops_count_3, message_buffer, 10);
+  // MQTTclient.publish(topic.c_str(), message_buffer, true);
 
-  topic = getTopicName(3, "Entprellzeit");
-  itoa(configManager.data.meter_debounce_3, message_buffer, 10);
-  MQTTclient.publish(topic.c_str(), message_buffer, true);
+  // topic = getTopicName(3, "Entprellzeit");
+  // itoa(configManager.data.meter_debounce_3, message_buffer, 10);
+  // MQTTclient.publish(topic.c_str(), message_buffer, true);
 
   // Meter #4
-  topic = getTopicName(4, "Stand");
-  dtostrf(Ferraris::getInstance(3).get_kWh(), 1, 1, message_buffer);
-  MQTTclient.publish(topic.c_str(), message_buffer, true);
+  // topic = getTopicName(4, "Stand");
+  // dtostrf(Ferraris::getInstance(3).get_kWh(), 1, 1, message_buffer);
+  // MQTTclient.publish(topic.c_str(), message_buffer, true);
 
-  topic = getTopicName(4, "W");
-  dtostrf(Ferraris::getInstance(3).get_W(), 1, 1, message_buffer);
-  MQTTclient.publish(topic.c_str(), message_buffer, false);
+  // topic = getTopicName(4, "W");
+  // dtostrf(Ferraris::getInstance(3).get_W(), 1, 1, message_buffer);
+  // MQTTclient.publish(topic.c_str(), message_buffer, false);
 
-  topic = getTopicName(4, "UKWh");
-  itoa(configManager.data.meter_loops_count_4, message_buffer, 10);
-  MQTTclient.publish(topic.c_str(), message_buffer, true);
+  // topic = getTopicName(4, "UKWh");
+  // itoa(configManager.data.meter_loops_count_4, message_buffer, 10);
+  // MQTTclient.publish(topic.c_str(), message_buffer, true);
 
-  topic = getTopicName(4, "Entprellzeit");
-  itoa(configManager.data.meter_debounce_4, message_buffer, 10);
-  MQTTclient.publish(topic.c_str(), message_buffer, true);
+  // topic = getTopicName(4, "Entprellzeit");
+  // itoa(configManager.data.meter_debounce_4, message_buffer, 10);
+  // MQTTclient.publish(topic.c_str(), message_buffer, true);
 
   /*
   attachInterrupt(digitalPinToInterrupt(IRPIN1), IRSensorHandle1, CHANGE);
